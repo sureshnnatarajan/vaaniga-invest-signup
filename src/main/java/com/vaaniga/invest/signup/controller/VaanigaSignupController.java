@@ -1,11 +1,18 @@
 package com.vaaniga.invest.signup.controller;
 
+import java.util.Collections;
+import java.util.Map;
+
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,6 +52,17 @@ public class VaanigaSignupController {
 		responseObject.put("executionTime", timeElapsed / 1000000 + " milliseconds");
 		
 		return new ResponseEntity<>(responseObject.toMap(), HttpStatus.OK);
+	}
+	
+	@GetMapping("/user")
+    public Map<String, Object> user(@AuthenticationPrincipal OAuth2User principal) {
+        return Collections.singletonMap("name", principal.getAttribute("name"));
+    }
+	
+	@GetMapping("/social/{appName}")
+	public String redirectToSocial(@PathVariable String appName) {
+		
+		return "redirect:"+vaanigaSignupService.constructSocialRedirection(appName);
 	}
 }
 

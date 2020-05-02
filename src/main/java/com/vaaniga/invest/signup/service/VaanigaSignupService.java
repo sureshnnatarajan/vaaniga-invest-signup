@@ -11,5 +11,7 @@ public interface VaanigaSignupService {
 	SignupResponseDto signUpUser(SignupRequestDto signupRequestDto) throws SignupServiceGenericException;
 	
 	void postSignUpUser(SignupRequestDto signupRequestDto, SignupResponseDto signupResponseDto);
+	
+	String constructSocialRedirection(String appName);
 
 }

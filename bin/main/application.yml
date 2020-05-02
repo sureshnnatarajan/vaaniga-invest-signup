@@ -17,3 +17,6 @@ spring:
           google:
             clientId: 714892763843-g6qre0ab62klviqgpeokfmedr9nmjecj.apps.googleusercontent.com
             clientSecret: FGb4O0X-8O_U6A_d4qTeqFF3
+          facebook:
+            clientId: 235094501099114
+            clientSecret: 7df07b3556d88a104730fdb226c15ad8

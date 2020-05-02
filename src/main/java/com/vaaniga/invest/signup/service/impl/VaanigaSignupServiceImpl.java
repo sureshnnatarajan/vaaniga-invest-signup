@@ -87,4 +87,24 @@ public class VaanigaSignupServiceImpl implements VaanigaSignupService {
 		}
 	}
 
+	@Override
+	public String constructSocialRedirection(String appName) {
+		
+		String reDirectionUrl = "";
+		
+		if (StringUtils.isEmpty(appName)) {
+			return reDirectionUrl;
+		}
+		
+		if ("facebook".equalsIgnoreCase(appName)) {
+			reDirectionUrl = "https://vaaniga-invest-signup.herokuapp.com/vaanigaInvest/login/oauth2/code/facebook";
+		}
+		
+		if ("google".equalsIgnoreCase(appName)) {
+			reDirectionUrl = "https://vaaniga-invest-signup.herokuapp.com/vaanigaInvest/login/oauth2/code/google";
+		}
+		
+		return reDirectionUrl;
+	}
+
 }
