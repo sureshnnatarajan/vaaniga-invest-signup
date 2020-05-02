@@ -18,7 +18,8 @@ public class VaanigaInvestSignupApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/signUp").allowedOrigins("https://vaaniga-invest-app.herokuapp.com/");
+				registry.addMapping("/signUp")
+						.allowedOrigins("https://vaaniga-invest-app.herokuapp.com/");
 			}
 		};
 	}
