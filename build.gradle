@@ -24,7 +24,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	
 	// https://vaaniga-invest-signup.herokuapp.com/vaanigaInvest/login/oauth2/code/google
-	//compile group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-client', version: '2.1.0.RELEASE'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-client', version: '2.1.0.RELEASE'
 	
 	
 	compile group: 'commons-validator', name: 'commons-validator', version: '1.6'
