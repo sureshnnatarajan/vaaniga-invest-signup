@@ -19,7 +19,7 @@ import com.vaaniga.invest.signup.service.VaanigaSignupService;
 
 @RestController
 @RequestMapping(path="/signUp")
-//@CrossOrigin("*")
+@CrossOrigin("*")
 public class VaanigaSignupController {
 
 	private VaanigaSignupService vaanigaSignupService;
@@ -30,7 +30,7 @@ public class VaanigaSignupController {
 		this.vaanigaSignupService = vaanigaSignupServiceParam;
 	}
 
-	@CrossOrigin(origins = "https://vaaniga-invest-app.herokuapp.com/")
+	//@CrossOrigin(origins = "https://vaaniga-invest-app.herokuapp.com/")
 	@PostMapping(value = "/", produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> signupUser(@RequestBody SignupRequestDto signupRequestDto ) throws SignupServiceGenericException {
 		
