@@ -37,7 +37,7 @@ public class VaanigaSignupController {
 		this.vaanigaSignupService = vaanigaSignupServiceParam;
 	}
 
-	@CrossOrigin(origins = "https://vaaniga-invest-app.herokuapp.com/")
+	//@CrossOrigin(origins = "https://vaaniga-invest-app.herokuapp.com/")
 	@PostMapping(value = "/", produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> signupUser(@RequestBody SignupRequestDto signupRequestDto ) throws SignupServiceGenericException {
 		
@@ -62,9 +62,10 @@ public class VaanigaSignupController {
     }
 	
 	//@CrossOrigin(origins = "https://vaaniga-invest-app.herokuapp.com/")
-	@GetMapping("/social/{appName}")
+	@GetMapping(value = "/social/{appName}", produces=MediaType.TEXT_PLAIN_VALUE)
 	public String redirectToSocial(@PathVariable String appName) {
 		
-		return "redirect:"+vaanigaSignupService.constructSocialRedirection(appName);
+		return "redirect:" + vaanigaSignupService.constructSocialRedirection(appName);
 	}
+
 }
