@@ -1,21 +1,14 @@
 package com.vaaniga.invest.signup.config;
 
-import java.util.Arrays;
-
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
-    protected void configure(HttpSecurity http) throws Exception {
+    /*protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
             	.anyRequest()
@@ -26,12 +19,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	        .sessionManagement()
 	        	.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 	        	.and()
-	        .csrf().disable();
-        
-        http.cors();
+	        .csrf()
+	        	.disable()
+        	.cors();
     }
-	
-	@Bean
+    @Bean
 	  CorsConfigurationSource corsConfigurationSource() {
 	      CorsConfiguration configuration = new CorsConfiguration();
 	      configuration.setAllowedOrigins(Arrays.asList("https://vaaniga-invest-app.herokuapp.com/"));
@@ -40,4 +32,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	      source.registerCorsConfiguration("/**", configuration);
 	      return source;
 	  }
+    */
+	
+	protected void configure(HttpSecurity http) throws Exception {
+        http
+        	.cors()
+        	.and()
+        	.csrf().disable();
+    }
+	
 }

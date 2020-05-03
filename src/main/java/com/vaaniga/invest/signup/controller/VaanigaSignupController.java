@@ -26,7 +26,7 @@ import com.vaaniga.invest.signup.service.VaanigaSignupService;
 
 @RestController
 @RequestMapping(path="/signUp")
-//@CrossOrigin("*")
+@CrossOrigin("*")
 public class VaanigaSignupController {
 
 	private VaanigaSignupService vaanigaSignupService;
@@ -55,13 +55,13 @@ public class VaanigaSignupController {
 		return new ResponseEntity<>(responseObject.toMap(), HttpStatus.OK);
 	}
 	
-	@CrossOrigin(origins = "https://vaaniga-invest-app.herokuapp.com/")
+	//@CrossOrigin(origins = "https://vaaniga-invest-app.herokuapp.com/")
 	@GetMapping("/user")
     public Map<String, Object> user(@AuthenticationPrincipal OAuth2User principal) {
         return Collections.singletonMap("name", principal.getAttribute("name"));
     }
 	
-	@CrossOrigin(origins = "https://vaaniga-invest-app.herokuapp.com/")
+	//@CrossOrigin(origins = "https://vaaniga-invest-app.herokuapp.com/")
 	@GetMapping("/social/{appName}")
 	public String redirectToSocial(@PathVariable String appName) {
 		
